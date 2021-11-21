@@ -8,7 +8,7 @@ invoiceCronjobs.schedule();
 const app = express()
 const PORT = 4567
 
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`)) 
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`)) 
 
 app.use(bodyParser.json())
 app.post("/", integrationRouter)
