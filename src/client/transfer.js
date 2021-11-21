@@ -1,8 +1,8 @@
-const starkbank = require("./starkbank");
+const starkbank = require("./credentials");
 
 class Transfer {
-    async Create(amount) {
-        try {
+   async Create(amount){
+       try{
             await starkbank.transfer.create([
                 {
                     amount: amount,
@@ -17,10 +17,7 @@ class Transfer {
         } catch (error) {
             console.log("Error while creating transfer: ", error)
         }
-    }
+   } 
 }
 
 module.exports = Transfer;
-
-
-
