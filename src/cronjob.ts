@@ -13,16 +13,20 @@ class InvoiceCronjob {
         console.log("Scheduling cronjobs...")
 
         // Schedule to create invoices every three hours
-        cron.schedule("0 1  * * *", () =>{
-            this.insertInvoiceAmount(invoices)
+        cron.schedule("0 1 * * *", () =>{
+            this.insertInvoiceData(invoices)
             
             this.invoiceClient.CreateInvoice(invoices);
         })
     }
 
-    private insertInvoiceAmount(invoices: Invoice[]){
+    private insertInvoiceData(invoices: Invoice[]){
         for (let invoice of invoices) {
-            invoice.amount = Math.floor(Math.random() * 1000000);
+           
+            invoice.amount = Math.floor(Math.random() * (1000000 - 1 + 1) + 1);
+
+            let randomDay = Math.floor(Math.random() * (29 - 1 + 1) + 1);
+            invoice.due = `2021-12-${randomDay}T16:27:37.585+00:00`
         }
     }
 }

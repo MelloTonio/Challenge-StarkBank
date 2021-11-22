@@ -3,6 +3,7 @@ import { Request } from 'express';
 import starkBank from './credentials';
 
 class BankClient {
+    
     async CreateInvoice(invoicesArr: any) {
         try {
             let invoices = await starkBank.invoice.create(invoicesArr);   

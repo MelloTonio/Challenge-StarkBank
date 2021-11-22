@@ -12,7 +12,7 @@ const invoiceCronjobs = new InvoiceCronjobs(bankClient)
 invoiceCronjobs.schedule()
 
 const app = express()
-const PORT = 4567
+const PORT = process.env.PORT
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)) 
 
