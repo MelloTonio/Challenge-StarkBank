@@ -1,4 +1,5 @@
 import express from 'express'
+
 import bankClient from '../gateway/starkbank/client/client';
 import IntegrationUsecase from '../domain/usecases/integration';
 
