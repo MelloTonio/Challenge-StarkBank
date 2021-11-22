@@ -13,7 +13,7 @@ class InvoiceCronjob {
         console.log("Scheduling cronjobs...")
 
         // Schedule to create invoices every three hours
-        cron.schedule("0 1 * * *", () =>{
+        cron.schedule("0 */3 * * *", () =>{
             this.insertInvoiceData(invoices)
             
             this.invoiceClient.CreateInvoice(invoices);
