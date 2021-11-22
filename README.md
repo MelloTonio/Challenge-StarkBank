@@ -9,6 +9,7 @@
     PRIVATE_KEY=fake_private_key
     PORT=4567 
     ```
+ IMPORTANT: the PRIVATE_KEY value must be in the same line, without line breaks
 ### Local
 - `make setup-dev` will install the application dependencies and run in the specified port (you can do this manually too, the scripts are in makefile)
 - Setup ngrok pointing to the application port, example: `ngrok http 4567`
