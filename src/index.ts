@@ -1,6 +1,9 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 
+import * as dotenv from 'dotenv';
+dotenv.config()
+
 import integrationRouter from "./routes/integration"
 import InvoiceCronjobs from './cronjob'
 import bankClient from './gateway/starkbank/client/client'

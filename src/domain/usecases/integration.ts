@@ -6,9 +6,9 @@ class IntegrationUsecase {
     constructor(private bankClient: BankClient) {}
 
     async HandleEvent(req: Request, res: Response) {
-       let statusCode: number = this.bankClient.HandleEvent(req)
+       let statusCode: number = await this.bankClient.HandleEvent(req)
 
-       res.status(statusCode).end()
+       res.sendStatus(statusCode)
     }
 }
 

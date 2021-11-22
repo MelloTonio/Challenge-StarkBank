@@ -36,6 +36,7 @@ class BankClient {
 
                     let transfers = this.buildNewTransfer(creditedAmount)
 
+                    console.log("Executing Transfer...")
                     let status = await this.ExecuteTransfers(transfers)
 
                     return status
