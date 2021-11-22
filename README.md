@@ -12,6 +12,6 @@
 ### Local
 - `make setup-dev` will install the application dependencies and run in the specified port
 - Setup ngrok pointing to the application port, example: `ngrok http 4567`
-- Wait for the invoice cronjob to run
-
+- Setup webhook in StarkBank sandbox by using ngrok generated url
+- Now you just have to wait the invoice cronjob to run
 
