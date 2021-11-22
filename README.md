@@ -4,7 +4,7 @@
 
 ### 1. Setup environment
 - First you need to generate a private key and create a project in StarkBank sandbox
-- Then you need to create a ".env" file with two variables:
+- Then you need to create a ".env" file with two variables (the values are just an example):
     ```
     PRIVATE_KEY=fake_private_key
     PORT=4567 
