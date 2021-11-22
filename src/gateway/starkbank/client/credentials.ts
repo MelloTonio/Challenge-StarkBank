@@ -1,5 +1,6 @@
 const starkbank = require('starkbank');
 
+// use
 let privateKeyContent = `
 -----BEGIN EC PRIVATE KEY-----
 MHQCAQEEIPPTQnn7g+8DVhOcvqKxLrPFZ/hb0Ruc91amqiLruUESoAcGBSuBBAAK
@@ -15,4 +16,4 @@ let user = new starkbank.Project({
 });
 starkbank.user = user;
 
-module.exports = starkbank;
+export default starkbank;

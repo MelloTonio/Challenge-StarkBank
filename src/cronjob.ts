@@ -1,12 +1,37 @@
 const cron = require("node-cron")
-const Invoice = require("./client/invoice")
 
-// Is this valid random people?
-let invoices = [
+import { Invoice } from "./domain/entities/invoice";
+
+interface InvoiceClient {
+    CreateInvoice(invoices: Invoice[]):void
+}
+
+class InvoiceCronjob {
+    constructor(private invoiceClient: InvoiceClient) {}
+    
+    schedule(){
+        console.log("Scheduling cronjobs...")
+
+        // Schedule to create invoices every three hours
+        cron.schedule("0 1  * * *", () =>{
+            this.insertInvoiceAmount(invoices)
+            
+            this.invoiceClient.CreateInvoice(invoices);
+        })
+    }
+
+    private insertInvoiceAmount(invoices: Invoice[]){
+        for (let invoice of invoices) {
+            invoice.amount = Math.floor(Math.random() * 1000000);
+        }
+    }
+}
+
+let invoices: Invoice[] = [
     {
         name: 'Antonio', 
         due: '2021-12-15T16:27:37.585+00:00',
-        amount: 0, //change to random
+        amount: 0, 
         taxId: '714.763.280-05', 
         descriptions: [ { key: 'Field1', value: 'Something' } ], 
         fine: 1.1,
@@ -77,23 +102,4 @@ let invoices = [
     }
 ]
 
-class InvoiceCronjob {
-    schedule(){
-        console.log("Scheduling cronjobs...")
-
-        cron.schedule("0 1 * * *", () =>{
-            const newInvoice = new Invoice();
-            this.insertInvoiceAmount(invoices)
-            newInvoice.Create(invoices);
-        })
-    }
-
-    insertInvoiceAmount(invoices){
-        for (let invoice of invoices) {
-            invoice.amount = Math.floor(Math.random() * 1000000);
-        }
-    }
-}
-
-
-module.exports = new InvoiceCronjob();
+export default InvoiceCronjob;
