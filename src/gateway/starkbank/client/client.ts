@@ -20,7 +20,7 @@ class BankClient {
         try{
              await starkBank.transfer.create(transfers); 
 
-             return 201
+             return 200
          } catch (error) {
              console.log("Error while creating transfer: ", error)
 
@@ -44,7 +44,7 @@ class BankClient {
                 }
             default:
                 console.log(req.body) 
-                return 422
+                return 200 // We need to return 200 here to mark the event as received
         }
     }
 
