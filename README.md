@@ -1,5 +1,8 @@
 # Challenge StarkBank
 
+## Dependencies
+- You must have [node](https://nodejs.org/en/) installed
+
 ## Instructions to Run a local test
 
 ### 1. Setup environment
